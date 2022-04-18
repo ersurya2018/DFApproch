@@ -1,0 +1,38 @@
+﻿@model DF_Approch_Test.Models.StudentRegModel
+<h1 style="text-align:center;color:green">Student Register Here</h1>
+<form asp-action="AddStudent" asp-controller="Admin" method="Post">
+    @Html.HiddenFor(m => m.Stuid)
+    <div>
+        <div class="form-group">
+            <label>Student Name</label>
+            <input asp-for="Name" type="text" class="form-control" maxlength="50" placeholder="Enter your name.." required />
+        </div>
+
+        <div class="form-group">
+            <label>Father Name</label>
+            <input asp-for="Fname" type="text" class="form-control" maxlength="50" placeholder="Enter Father Name.." required />
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input asp-for="Email" type="email" class="form-control" maxlength="30" placeholder="Enter Email.." required />
+        </div>
+
+        <div class="form-group">
+            <label>mobile</label>
+            <input asp-for="Mobile" type="text" class="form-control" maxlength="12" placeholder="Enter Mobile No.." required />
+        </div>
+
+        <div class="form-group">
+            <label>Branch</label>
+            <input asp-for="Branch" type="text" class="form-control" maxlength="10" placeholder="Enter branch.." required />
+        </div>
+
+        <div class="form-group">
+            <label>Address</label>
+            <input asp-for="Address" type="text" class="form-control" maxlength="100" placeholder="Enter Your Address" required />
+        </div>
+
+        <input type="submit" value="Register Here" class="btn btn-success" />
+    </div>
+</form>

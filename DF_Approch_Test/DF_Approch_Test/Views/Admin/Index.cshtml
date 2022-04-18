@@ -1,0 +1,40 @@
+﻿@model List<DF_Approch_Test.Models.StudentRegModel>
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{
+    int sr = 1;
+}
+<h1 style="text-align:center;color:green;">List of Students</h1>
+<span style="text-align:left; color:red; font-size:20px; font-weight:bold;">Wellcome :- @HttpContextAccessor.HttpContext.Session.GetString("Name")</span>
+<a asp-action="Logout" asp-controller="Admin" class="btn btn-danger" style="text-align:right">Logout</a>
+<table class="table bg-info">
+    <tr>
+        <th>Sr.No.</th>
+        <th>Student Name</th>
+        <th>Father Name</th>
+        <th>Email</th>
+        <th>Moblie</th>
+        <th>Branch</th>
+        <th>Address</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@sr</td>
+            <td>@item.Name</td>
+            <td>@item.Fname</td>
+            <td>@item.Email</td>
+            <td>@item.Mobile</td>
+            <td>@item.Branch</td>
+            <td>@item.Address</td>
+            <td><a asp-action="Edit" asp-controller="Admin" asp-route-id="@item.Stuid" class="btn btn-warning">Edit</a></td>
+            <td><a asp-action="Delete" asp-controller="Admin" asp-route-id="@item.Stuid" class="btn btn-danger" onclick="confirm('Are You Soure Want To Delete');">Delete</a></td>
+        </tr>
+        sr = sr + 1;
+    }
+</table>
+
+<hr />
+<a asp-action="AddStudent" asp-controller="Admin" class="btn btn-success">AddNewStudent</a>

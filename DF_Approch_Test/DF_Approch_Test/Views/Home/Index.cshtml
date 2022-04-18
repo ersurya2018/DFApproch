@@ -1,0 +1,33 @@
+﻿@model DF_Approch_Test.Models.UserInfoModel
+
+<style>
+    .erroe
+    {
+        color:red;
+    }
+</style>
+
+<h1 style="text-align:center; color:green;">Please Login Here</h1>
+<div  style="margin:auto;">
+    <form asp-action="Index" asp-controller="Home" method="Post">
+        <div>
+            <label>Enter UserName</label>
+            <input asp-for="Email" type="email" class="form-control" maxlength="20" placeholder="Enter Email.." required />
+            <div class="erroe">@TempData["invalid"]</div>
+        </div>
+
+        <div>
+            <label>Enter Password</label>
+            <input asp-for="Password" type="password" class="form-control" maxlength="20" placeholder="Enter Password.." required />
+            <div class="erroe">@TempData["invalidpass"]</div>
+        </div>
+        <br />
+        <div>
+        <button type="submit" class="btn btn-success">Login</button>
+        <a asp-action="AddNewUser" asp-controller="Home" class="btn btn-dark">AddNewUser</a>
+            </div>
+    </form>
+    
+</div>
+
+
